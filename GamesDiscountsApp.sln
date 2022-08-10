@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamesDiscounts", "GamesDiscounts\GamesDiscounts.csproj", "{2F3F00E6-A097-4616-BFA9-38D6CF95ACC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIServicesClassLibrary", "APIServicesClassLibrary\APIServicesClassLibrary.csproj", "{E2615894-B479-4F3C-AE66-2F7FE633A7D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToastNotificationsClassLibrary", "ToastNotificationsClassLibrary\ToastNotificationsClassLibrary.csproj", "{F33CBA60-EBD9-4668-840B-ACBD627C6F02}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ClassLibraries", "ClassLibraries", "{3ADD07FB-6973-4584-B98D-44E973AEBE62}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2F3F00E6-A097-4616-BFA9-38D6CF95ACC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F3F00E6-A097-4616-BFA9-38D6CF95ACC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F3F00E6-A097-4616-BFA9-38D6CF95ACC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F3F00E6-A097-4616-BFA9-38D6CF95ACC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2615894-B479-4F3C-AE66-2F7FE633A7D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2615894-B479-4F3C-AE66-2F7FE633A7D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2615894-B479-4F3C-AE66-2F7FE633A7D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2615894-B479-4F3C-AE66-2F7FE633A7D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F33CBA60-EBD9-4668-840B-ACBD627C6F02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F33CBA60-EBD9-4668-840B-ACBD627C6F02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F33CBA60-EBD9-4668-840B-ACBD627C6F02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F33CBA60-EBD9-4668-840B-ACBD627C6F02}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E2615894-B479-4F3C-AE66-2F7FE633A7D6} = {3ADD07FB-6973-4584-B98D-44E973AEBE62}
+		{F33CBA60-EBD9-4668-840B-ACBD627C6F02} = {3ADD07FB-6973-4584-B98D-44E973AEBE62}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1396BB9F-C03F-432B-9B6C-1CD73E45A77C}
+	EndGlobalSection
+EndGlobal
