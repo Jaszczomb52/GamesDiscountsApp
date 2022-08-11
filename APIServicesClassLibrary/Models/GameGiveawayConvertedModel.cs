@@ -18,7 +18,18 @@
 
         public override string ToString()
         {
-            return $"{title} ;worth: {worth}; type: {type}; status: {status};published: {published_date}; end date: {end_date}; ";
+            return $"{title} ;worth: {worth}; type: {type}; status: {status};published: {published_date}; end date: {end_date}; platforms: {PrintDevices(device)}";
+        }
+
+        private string PrintDevices(List<APIFactory.platforms> input)
+        {
+            string output = "";
+            foreach (var device in input)
+            {
+                output += device;
+            }
+            return output;
+
         }
     }
 

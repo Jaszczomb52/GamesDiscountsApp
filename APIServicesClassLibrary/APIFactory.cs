@@ -19,6 +19,9 @@ namespace APIServicesClassLibrary
             Switch,
             Android,
             IOS,
+            Steam,
+            EpicGames,
+            GOG,
             Other
         }
 

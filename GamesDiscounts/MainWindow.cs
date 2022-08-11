@@ -105,5 +105,10 @@ namespace GamesDiscounts
         {
             LoadFromAPI();
         }
+
+        private void listBox1_DoubleClick(object sender, EventArgs e)
+        {
+            Clipboard.SetText(((IGameGiveawayConvertedModel)listBox1.SelectedItem).open_giveaway_url);
+        }
     }
 }
