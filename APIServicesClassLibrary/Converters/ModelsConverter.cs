@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using APIServicesClassLibrary.Models;
+using Windows.Foundation.Metadata;
 
 namespace APIServicesClassLibrary
 {
@@ -47,25 +48,32 @@ namespace APIServicesClassLibrary
         private List<APIFactory.platforms> getDevices(string platforms)
         {
             List<APIFactory.platforms> output = new List<APIFactory.platforms>();
-            var splitted = platforms.Split(",");
+            var splitted = platforms.Split(",").ToArray();
             foreach (var platform in splitted)
             {
-                if (platform == "PC")
+                var temp = platform.Trim();
+                if (temp == "PC")
                     output.Add(APIFactory.platforms.PC);
-                else if (platform == "PS4")
+                else if (temp == "Playstation 4")
                     output.Add(APIFactory.platforms.PS4);
-                else if (platform == "PS5")
+                else if (temp == "Playstation 5")
                     output.Add(APIFactory.platforms.PS5);
-                else if (platform == "Android")
+                else if (temp == "Android")
                     output.Add(APIFactory.platforms.Android);
-                else if (platform == "iOS")
+                else if (temp == "iOS")
                     output.Add(APIFactory.platforms.IOS);
-                else if (platform == "Xbox Series X|S")
+                else if (temp == "Xbox Series X|S")
                     output.Add(APIFactory.platforms.XboxSeries);
-                else if (platform == "Xbox One")
+                else if (temp == "Xbox One")
                     output.Add(APIFactory.platforms.XboxOne);
-                else if (platform == "Nintendo Switch")
+                else if (temp == "Nintendo Switch")
                     output.Add(APIFactory.platforms.Switch);
+                else if (temp == "Steam")
+                    output.Add(APIFactory.platforms.Steam);
+                else if (temp == "Epic Games Store")
+                    output.Add(APIFactory.platforms.EpicGames);
+                else if (temp == "GOG")
+                    output.Add(APIFactory.platforms.GOG);
                 else
                     output.Add(APIFactory.platforms.Other);
             }
