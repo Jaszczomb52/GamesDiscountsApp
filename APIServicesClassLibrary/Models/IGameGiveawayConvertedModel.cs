@@ -3,7 +3,7 @@
     public interface IGameGiveawayConvertedModel
     {
         string description { get; set; }
-        List<GameGiveawayConvertedModel.platforms> device { get; set; }
+        List<APIFactory.platforms> device { get; set; }
         DateTime? end_date { get; set; }
         string image { get; set; }
         string instructions { get; set; }
@@ -11,7 +11,7 @@
         DateTime? published_date { get; set; }
         string status { get; set; }
         string title { get; set; }
-        GameGiveawayConvertedModel.types type { get; set; }
+        APIFactory.types type { get; set; }
         decimal worth { get; set; }
     }
 }
