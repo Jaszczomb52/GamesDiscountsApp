@@ -9,6 +9,27 @@ namespace APIServicesClassLibrary
 {
     public class APIFactory
     {
+        public enum platforms
+        {
+            PC,
+            PS4,
+            PS5,
+            XboxOne,
+            XboxSeries,
+            Switch,
+            Android,
+            IOS,
+            Other
+        }
+
+        public enum types
+        {
+            DLC,
+            Game,
+            EarlyAccess,
+            Other
+        }
+
         public static GameGiveawayRawModel CreateRawModel()
         {
             return new GameGiveawayRawModel();

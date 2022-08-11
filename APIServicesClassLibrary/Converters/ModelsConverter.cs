@@ -32,39 +32,42 @@ namespace APIServicesClassLibrary
             return converted;
         }
 
-        private GameGiveawayConvertedModel.types getTypes(string type)
+        private APIFactory.types getTypes(string type)
         {
             if (type == "Game")
-                return GameGiveawayConvertedModel.types.Game;
+                return APIFactory.types.Game;
             else if (type == "Early access")
-                return GameGiveawayConvertedModel.types.EarlyAccess;
+                return APIFactory.types.EarlyAccess;
+            else if (type == "DLC")
+                return APIFactory.types.DLC;
             else
-                // returning DLC because it's in 90% dlc, so if it's not game or early access... it's most likely dlc and it'll always return smthn.
-                return GameGiveawayConvertedModel.types.DLC;
+                return APIFactory.types.Other;
         }
 
-        private List<GameGiveawayConvertedModel.platforms> getDevices(string platforms)
+        private List<APIFactory.platforms> getDevices(string platforms)
         {
-            List<GameGiveawayConvertedModel.platforms> output = new List<GameGiveawayConvertedModel.platforms>();
+            List<APIFactory.platforms> output = new List<APIFactory.platforms>();
             var splitted = platforms.Split(",");
             foreach (var platform in splitted)
             {
                 if (platform == "PC")
-                    output.Add(GameGiveawayConvertedModel.platforms.PC);
+                    output.Add(APIFactory.platforms.PC);
                 else if (platform == "PS4")
-                    output.Add(GameGiveawayConvertedModel.platforms.PS4);
+                    output.Add(APIFactory.platforms.PS4);
                 else if (platform == "PS5")
-                    output.Add(GameGiveawayConvertedModel.platforms.PS5);
+                    output.Add(APIFactory.platforms.PS5);
                 else if (platform == "Android")
-                    output.Add(GameGiveawayConvertedModel.platforms.Android);
+                    output.Add(APIFactory.platforms.Android);
                 else if (platform == "iOS")
-                    output.Add(GameGiveawayConvertedModel.platforms.IOS);
+                    output.Add(APIFactory.platforms.IOS);
                 else if (platform == "Xbox Series X|S")
-                    output.Add(GameGiveawayConvertedModel.platforms.XboxSeries);
+                    output.Add(APIFactory.platforms.XboxSeries);
                 else if (platform == "Xbox One")
-                    output.Add(GameGiveawayConvertedModel.platforms.XboxOne);
+                    output.Add(APIFactory.platforms.XboxOne);
                 else if (platform == "Nintendo Switch")
-                    output.Add(GameGiveawayConvertedModel.platforms.Switch);
+                    output.Add(APIFactory.platforms.Switch);
+                else
+                    output.Add(APIFactory.platforms.Other);
             }
             return output;
         }
