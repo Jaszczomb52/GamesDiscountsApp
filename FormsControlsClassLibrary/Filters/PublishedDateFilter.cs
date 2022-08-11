@@ -2,7 +2,7 @@
 
 namespace FormsControlsClassLibrary
 {
-    public class PublishedDateFilter : IFilter, IAscDescFilter
+    public class PublishedDateFilter : IFilter, IAscDescFilter, IPublishedDateFilter
     {
         public string Name { get; private set; }
         public string Description { get; private set; }
@@ -15,14 +15,12 @@ namespace FormsControlsClassLibrary
 
         public List<IGameGiveawayConvertedModel> FilterASC(List<IGameGiveawayConvertedModel> input)
         {
-            input.OrderBy(x => x.published_date);
-            return input;
+            return input.OrderBy(x => x.published_date).ToList();
         }
 
         public List<IGameGiveawayConvertedModel> FilterDESC(List<IGameGiveawayConvertedModel> input)
         {
-            input.OrderByDescending(x => x.published_date);
-            return input;
+            return input.OrderByDescending(x => x.published_date).ToList();
         }
     }
 }

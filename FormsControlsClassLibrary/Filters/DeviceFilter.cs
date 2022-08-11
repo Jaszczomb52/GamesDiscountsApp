@@ -3,7 +3,7 @@ using APIServicesClassLibrary.Models;
 
 namespace FormsControlsClassLibrary
 {
-    public class DeviceFilter : IFilter, IChoiceFilter
+    public class DeviceFilter : IFilter, IChoiceFilter, IDeviceFilter
     {
         public string Name { get; private set; }
         public string Description { get; private set; }

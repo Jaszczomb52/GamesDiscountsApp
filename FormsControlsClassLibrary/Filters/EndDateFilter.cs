@@ -2,7 +2,7 @@
 
 namespace FormsControlsClassLibrary
 {
-    public class EndDateFilter : IFilter, IAscDescFilter
+    public class EndDateFilter : IFilter, IAscDescFilter, IEndDateFilter
     {
         public string Name { get; private set; }
         public string Description { get; private set; }
@@ -15,14 +15,12 @@ namespace FormsControlsClassLibrary
 
         public List<IGameGiveawayConvertedModel> FilterASC(List<IGameGiveawayConvertedModel> input)
         {
-            input.OrderBy(x => x.end_date);
-            return input;
+            return input.OrderBy(x => x.end_date).ToList();
         }
 
         public List<IGameGiveawayConvertedModel> FilterDESC(List<IGameGiveawayConvertedModel> input)
         {
-            input.OrderByDescending(x => x.end_date);
-            return input;
+            return input.OrderByDescending(x => x.end_date).ToList();
         }
     }
 }

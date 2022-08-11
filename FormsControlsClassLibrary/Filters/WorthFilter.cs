@@ -20,14 +20,12 @@ namespace FormsControlsClassLibrary
 
         public List<IGameGiveawayConvertedModel> FilterASC(List<IGameGiveawayConvertedModel> input)
         {
-            var output = input.OrderBy(x => x.worth).ToList();
-            return output;
+            return input.OrderBy(x => x.worth).ToList();
         }
 
         public List<IGameGiveawayConvertedModel> FilterDESC(List<IGameGiveawayConvertedModel> input)
         {
-            var output = input.OrderByDescending(x => x.worth).ToList();
-            return output;
+            return input.OrderByDescending(x => x.worth).ToList();
         }
     }
 }
