@@ -26,8 +26,8 @@ namespace GamesDiscounts
             await manager.GetDataFromAPI();
             await manager.ConvertModel();
             listBox1.DataSource = manager.converted;
-            comboBox1.DataSource = new APIFactory.platforms(); // zrobic enumy na liste
-            comboBox2.DataSource = new APIFactory.types(); // tu tez
+            comboBox1.DataSource = Enum.GetValues(typeof(APIFactory.platforms)).Cast<APIFactory.platforms>();
+            comboBox2.DataSource = Enum.GetValues(typeof(APIFactory.types)).Cast<APIFactory.types>();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
