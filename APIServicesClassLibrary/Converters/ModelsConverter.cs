@@ -38,9 +38,10 @@ namespace APIServicesClassLibrary
                 return APIFactory.types.Game;
             else if (type == "Early access")
                 return APIFactory.types.EarlyAccess;
-            else
-                // returning DLC because it's in 90% dlc, so if it's not game or early access... it's most likely dlc and it'll always return smthn.
+            else if (type == "DLC")
                 return APIFactory.types.DLC;
+            else
+                return APIFactory.types.Other;
         }
 
         private List<APIFactory.platforms> getDevices(string platforms)
@@ -65,6 +66,8 @@ namespace APIServicesClassLibrary
                     output.Add(APIFactory.platforms.XboxOne);
                 else if (platform == "Nintendo Switch")
                     output.Add(APIFactory.platforms.Switch);
+                else
+                    output.Add(APIFactory.platforms.Other);
             }
             return output;
         }

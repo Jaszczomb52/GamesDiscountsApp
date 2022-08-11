@@ -18,7 +18,7 @@
 
         public override string ToString()
         {
-            return $"{title} ;worth: {worth}; type: {type}; status: {status}";
+            return $"{title} ;worth: {worth}; type: {type}; status: {status}; end date: {end_date}; ";
         }
     }
 

@@ -18,7 +18,8 @@ namespace APIServicesClassLibrary
             XboxSeries,
             Switch,
             Android,
-            IOS
+            IOS,
+            Other
         }
 
         public enum types
@@ -26,6 +27,7 @@ namespace APIServicesClassLibrary
             DLC,
             Game,
             EarlyAccess,
+            Other
         }
 
         public static GameGiveawayRawModel CreateRawModel()
