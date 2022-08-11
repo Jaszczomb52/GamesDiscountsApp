@@ -7,23 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using FormsControlsClassLibrary;
-using APIServicesClassLibrary;
 using APIServicesClassLibrary.Models;
 
 namespace UserControlsLibrary
 {
-    public partial class FilterPanel : UserControl
+    public partial class ListViewWithFiltering : UserControl
     {
-        FilterManager manager = new FilterManager();
-        public FilterPanel()
+        public ListViewWithFiltering()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void SetList(List<IGameGiveawayConvertedModel> list)
         {
+            listBox1.DataSource = list;
+        }
 
+        public List<IGameGiveawayConvertedModel> GetList()
+        {
+            return listBox1.Items.Cast<IGameGiveawayConvertedModel>().ToList();
         }
     }
 }
