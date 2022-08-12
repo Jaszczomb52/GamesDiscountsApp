@@ -80,9 +80,9 @@ namespace APIServicesClassLibrary
             return output;
         }
 
-        private DateTime? convertDate(string date)
+        private DateTime convertDate(string date)
         {
-            DateTime? output = null;
+            DateTime output = DateTime.MinValue;
             try
             {
                 output = Convert.ToDateTime(date);

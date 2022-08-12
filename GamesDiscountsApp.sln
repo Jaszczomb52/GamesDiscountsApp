@@ -9,11 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIServicesClassLibrary", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToastNotificationsClassLibrary", "ToastNotificationsClassLibrary\ToastNotificationsClassLibrary.csproj", "{F33CBA60-EBD9-4668-840B-ACBD627C6F02}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ClassLibraries", "ClassLibraries", "{3ADD07FB-6973-4584-B98D-44E973AEBE62}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{3ADD07FB-6973-4584-B98D-44E973AEBE62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserControlsLibrary", "ControlsClassLibrary\UserControlsLibrary.csproj", "{28AD3546-C03E-49C3-ACDC-29E7FFF55805}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserControlsLibrary", "ControlsClassLibrary\UserControlsLibrary.csproj", "{28AD3546-C03E-49C3-ACDC-29E7FFF55805}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormsControlsClassLibrary", "FormsControlsClassLibrary\FormsControlsClassLibrary.csproj", "{8D514B85-087B-451E-92BF-C0426BAC3DF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FormsControlsClassLibrary", "FormsControlsClassLibrary\FormsControlsClassLibrary.csproj", "{8D514B85-087B-451E-92BF-C0426BAC3DF3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
