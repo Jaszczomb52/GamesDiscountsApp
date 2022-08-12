@@ -41,7 +41,11 @@ namespace UserControlsLibrary
 
         private void button1_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(link);
+            var uri = link;
+            var psi = new System.Diagnostics.ProcessStartInfo();
+            psi.UseShellExecute = true;
+            psi.FileName = uri;
+            System.Diagnostics.Process.Start(psi);
         }
     }
 }

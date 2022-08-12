@@ -44,72 +44,124 @@ namespace GamesDiscounts
 
         private async Task LoadPanels(List<IGameGiveawayConvertedModel> models)
         {
-            foreach (var model in models)
-                flowLayoutPanel2.Controls.Add(new DiscountPanel(model));
+            flowLayoutPanel2.Controls.Clear();
+
+            //foreach (var model in models)
+            //    flowLayoutPanel2.Controls.Add(new DiscountPanel(model));
+
+
+
+            IGameGiveawayConvertedModel[] arr = new IGameGiveawayConvertedModel[models.Count];
+
+            for (int i = 0; i < models.Count; i++)
+                arr[i] = models[i];
+
+            ParallelOptions po = new();
+            po.MaxDegreeOfParallelism = 4;
+            List<Task<DiscountPanel>> tasks = new();
+            Parallel.For(0, models.Count - 1, (i) =>
+            {
+                //somehow fucking works lol. can't be "i" cuz it'll just generate 1 card
+                tasks.Add(Task.Run(() => new DiscountPanel(arr[int.Parse(i.ToString())])));
+            });
+            DiscountPanel[] result = await Task.WhenAll(tasks);
+            foreach (DiscountPanel panel in result)
+                flowLayoutPanel2.Controls.Add(panel);
+
+
+
+            //List<Task<DiscountPanel>> tasks = new();
+            //foreach (var model in models)
+            //    tasks.Add(Task.Run(() => new DiscountPanel(model)));
+
+            //var result = Task.WhenAll(tasks);
+            //foreach (var panel in result)
+            //    flowLayoutPanel2.Controls.Add(panel);
+
+
+            //List<Task<DiscountPanel>> tasks = new();
+            //foreach (var model in models)
+            //    tasks.Add(Task.Run(() => new DiscountPanel(model)));
+
+            //var result = await Task.WhenAll(tasks);
+
+            //foreach (var panel in result)
+            //    flowLayoutPanel2.Controls.Add(panel);
         }
+
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            //var output = sorts.FirstOrDefault(x => x is IWorthFilter)!.FilterASC(listBox1.Items.Cast<IGameGiveawayConvertedModel>().ToList());
-            //listBox1.DataSource = output;
+            var output = sorts.FirstOrDefault(x => x is IWorthFilter)!.FilterASC(manager.converted);
+            LoadPanels(output);
+            manager.converted = output;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //var output = sorts.FirstOrDefault(x => x is IWorthFilter)!.FilterDESC(listBox1.Items.Cast<IGameGiveawayConvertedModel>().ToList());
-            //listBox1.DataSource = output;
+            var output = sorts.FirstOrDefault(x => x is IWorthFilter)!.FilterDESC(manager.converted);
+            LoadPanels(output);
+            manager.converted = output;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //var output = sorts.FirstOrDefault(x => x is ITitleFilter)!.FilterASC(listBox1.Items.Cast<IGameGiveawayConvertedModel>().ToList());
-            //listBox1.DataSource = output;
+            var output = sorts.FirstOrDefault(x => x is ITitleFilter)!.FilterASC(manager.converted);
+            LoadPanels(output);
+            manager.converted = output;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            //var output = sorts.FirstOrDefault(x => x is ITitleFilter)!.FilterDESC(listBox1.Items.Cast<IGameGiveawayConvertedModel>().ToList());
-            //listBox1.DataSource = output;
+            var output = sorts.FirstOrDefault(x => x is ITitleFilter)!.FilterDESC(manager.converted);
+            LoadPanels(output);
+            manager.converted = output;
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            //var output = sorts.FirstOrDefault(x => x is IPublishedDateFilter)!.FilterASC(listBox1.Items.Cast<IGameGiveawayConvertedModel>().ToList());
-            //listBox1.DataSource = output;
+            var output = sorts.FirstOrDefault(x => x is IPublishedDateFilter)!.FilterASC(manager.converted);
+            LoadPanels(output);
+            manager.converted = output;
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            //var output = sorts.FirstOrDefault(x => x is IPublishedDateFilter)!.FilterDESC(listBox1.Items.Cast<IGameGiveawayConvertedModel>().ToList());
-            //listBox1.DataSource = output;
+            var output = sorts.FirstOrDefault(x => x is IPublishedDateFilter)!.FilterDESC(manager.converted);
+            LoadPanels(output);
+            manager.converted = output;
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            //var output = sorts.FirstOrDefault(x => x is IEndDateFilter)!.FilterASC(listBox1.Items.Cast<IGameGiveawayConvertedModel>().ToList());
-            //listBox1.DataSource = output;
+            var output = sorts.FirstOrDefault(x => x is IEndDateFilter)!.FilterASC(manager.converted);
+            LoadPanels(output);
+            manager.converted = output;
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            //var output = sorts.FirstOrDefault(x => x is IEndDateFilter)!.FilterDESC(listBox1.Items.Cast<IGameGiveawayConvertedModel>().ToList());
-            //listBox1.DataSource = output;
+            var output = sorts.FirstOrDefault(x => x is IEndDateFilter)!.FilterDESC(manager.converted);
+            LoadPanels(output);
+            manager.converted = output;
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            //var filter = filters.FirstOrDefault(x => x is IDeviceFilter) as IDeviceFilter;
-            //filter!.SetDevice((APIFactory.platforms)comboBox1.SelectedItem);
-            //var output = filter.FilterHasChoice(listBox1.Items.Cast<IGameGiveawayConvertedModel>().ToList());
-            //listBox1.DataSource = output;
+            var filter = filters.FirstOrDefault(x => x is IDeviceFilter) as IDeviceFilter;
+            filter!.SetDevice((APIFactory.platforms)comboBox1.SelectedItem);
+            var output = filter.FilterHasChoice(manager.converted);
+            LoadPanels(output);
+            manager.converted = output;
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
-            //var filter = filters.FirstOrDefault(x => x is ITypeFilter) as ITypeFilter;
-            //filter!.SetType((APIFactory.types)comboBox2.SelectedItem);
-            //var output = filter.FilterHasChoice(listBox1.Items.Cast<IGameGiveawayConvertedModel>().ToList());
-            //listBox1.DataSource = output;
+            var filter = filters.FirstOrDefault(x => x is ITypeFilter) as ITypeFilter;
+            filter!.SetType((APIFactory.types)comboBox2.SelectedItem);
+            var output = filter.FilterHasChoice(manager.converted);
+            LoadPanels(output);
+            manager.converted = output;
         }
 
         private async void button11_Click(object sender, EventArgs e)
