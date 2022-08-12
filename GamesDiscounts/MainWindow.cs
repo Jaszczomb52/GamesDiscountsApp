@@ -27,8 +27,10 @@ namespace GamesDiscounts
             manager = new APIManager();
             await LoadFromAPI();
             comboBox1.DataSource = Enum.GetValues(typeof(APIFactory.platforms)).Cast<APIFactory.platforms>();
-            comboBox2.DataSource = Enum.GetValues(typeof(APIFactory.types)).Cast<APIFactory.types>();            
-            LoadPanels(manager.converted);
+            comboBox2.DataSource = Enum.GetValues(typeof(APIFactory.types)).Cast<APIFactory.types>();
+            flowLayoutPanel2.Hide();
+            await LoadPanels(manager.converted);
+            flowLayoutPanel2.Show();
             panel1.Visible = false;
         }
 
@@ -40,7 +42,7 @@ namespace GamesDiscounts
             await manager.ConvertModel();
         }
 
-        private void LoadPanels(List<IGameGiveawayConvertedModel> models)
+        private async Task LoadPanels(List<IGameGiveawayConvertedModel> models)
         {
             foreach (var model in models)
                 flowLayoutPanel2.Controls.Add(new DiscountPanel(model));
