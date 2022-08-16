@@ -153,7 +153,7 @@
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(170, 39);
             this.button10.TabIndex = 1;
-            this.button10.Text = "Filtruj";
+            this.button10.Text = "Apply filter";
             this.button10.UseVisualStyleBackColor = false;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
@@ -195,7 +195,7 @@
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(165, 39);
             this.button9.TabIndex = 1;
-            this.button9.Text = "Filtruj";
+            this.button9.Text = "Apply filter";
             this.button9.UseVisualStyleBackColor = false;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
@@ -536,7 +536,7 @@
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(86, 36);
             this.button11.TabIndex = 1;
-            this.button11.Text = "Reset";
+            this.button11.Text = "Refresh";
             this.button11.UseVisualStyleBackColor = false;
             this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
