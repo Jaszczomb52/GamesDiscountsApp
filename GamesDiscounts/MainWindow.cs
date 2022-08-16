@@ -37,8 +37,6 @@ namespace GamesDiscounts
             manager = new APIManager();
             comboBox1.DataSource = Enum.GetValues(typeof(APIFactory.platforms)).Cast<APIFactory.platforms>();
             comboBox2.DataSource = Enum.GetValues(typeof(APIFactory.types)).Cast<APIFactory.types>();
-            panel1.Size = flowLayoutPanel2.Size;
-            panel1.Location = flowLayoutPanel2.Location;
             await LoadFromAPI();
             pageManager.Configure(20, manager.converted.Count);
             LoadPanels(manager.converted,Page.None);
@@ -47,6 +45,8 @@ namespace GamesDiscounts
         private void EnableLoading()
         {
             panel1.Visible = true;
+            panel1.Size = flowLayoutPanel2.Size;
+            panel1.Location = flowLayoutPanel2.Location;
         }
 
         private void DisableLoading()
