@@ -598,7 +598,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(141, 38);
             this.label5.TabIndex = 0;
-            this.label5.Text = "1 out of 10";
+            this.label5.Text = "1 out of ...";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel4
