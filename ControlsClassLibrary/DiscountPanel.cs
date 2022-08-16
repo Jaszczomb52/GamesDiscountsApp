@@ -14,6 +14,7 @@ namespace UserControlsLibrary
     public partial class DiscountPanel : UserControl
     {
         string link = "";
+        public int id = 0;
         public DiscountPanel(IGameGiveawayConvertedModel model)
         {
             link = model.image;
