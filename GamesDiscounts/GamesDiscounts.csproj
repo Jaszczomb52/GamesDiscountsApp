@@ -12,7 +12,6 @@
     <ProjectReference Include="..\APIServicesClassLibrary\APIServicesClassLibrary.csproj" />
     <ProjectReference Include="..\ControlsClassLibrary\UserControlsLibrary.csproj" />
     <ProjectReference Include="..\FormsControlsClassLibrary\FormsControlsClassLibrary.csproj" />
-    <ProjectReference Include="..\ToastNotificationsClassLibrary\ToastNotificationsClassLibrary.csproj" />
   </ItemGroup>
 
 </Project>

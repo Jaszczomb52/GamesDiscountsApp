@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace UserControlsLibrary
 {
+    /// <summary>
+    /// Splash screen for loading.
+    /// </summary>
     public partial class Splash : UserControl
     {
         public Splash()

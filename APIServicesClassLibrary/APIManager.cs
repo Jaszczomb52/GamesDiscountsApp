@@ -30,18 +30,20 @@ namespace APIServicesClassLibrary
                 {
                     try
                     {
-                        List<GameGiveawayRawModel> output = JsonConvert.DeserializeObject<GameGiveawayRawModel[]>(await response.Content.ReadAsStringAsync()).ToList();
+                        List<GameGiveawayRawModel> output = JsonConvert.DeserializeObject<GameGiveawayRawModel[]>(await response.Content.ReadAsStringAsync())!.ToList();
                         raws = output;
                     }
                     catch
-                    { }
+                    {
+                        raws = new();
+                    }
                 }
             }
         }
 
         public async Task ConvertModel()
         {
-            List<Task<IGameGiveawayConvertedModel>> tasks = new List<Task<IGameGiveawayConvertedModel>>();
+            List<Task<IGameGiveawayConvertedModel>> tasks = new();
             foreach (GameGiveawayRawModel rm in raws)
             {
                 tasks.Add(Task.Run(() => ConvertModel(rm)));
