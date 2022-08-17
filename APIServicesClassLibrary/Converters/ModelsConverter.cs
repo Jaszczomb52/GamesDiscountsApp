@@ -13,10 +13,9 @@ namespace APIServicesClassLibrary
         public IGameGiveawayConvertedModel ConvertGameGiveawayModel(GameGiveawayRawModel raw)
         {
             var converted = APIFactory.CreateConvertedModel();
-            converted.description = raw.description;
-            converted.status = raw.status;
+            converted.published_date = convertDate(raw.published_date);
+            converted.end_date = convertDate(raw.end_date);
             converted.image = raw.image;
-            converted.instructions = raw.instructions;
             converted.open_giveaway_url = raw.open_giveaway_url;
             converted.title = raw.title;
 
@@ -25,10 +24,16 @@ namespace APIServicesClassLibrary
             else 
                 converted.worth = decimal.Parse(raw.worth.Trim().Split(".")[0].Substring(1) + "," + raw.worth.Trim().Split(".")[1]);
 
-            converted.published_date = convertDate(raw.published_date);
-            converted.end_date = convertDate(raw.end_date);
             converted.device = getDevices(raw.platforms);
             converted.type = getTypes(raw.type);
+
+            if (converted.published_date < DateTime.Today.AddMonths(-3) && converted.end_date < DateTime.Today)
+                converted.status = "Inactive";
+            else
+                converted.status = raw.status;
+
+            if (converted.published_date < DateTime.Today.AddYears(-1))
+                converted.status = "Dispose";
 
             return converted;
         }

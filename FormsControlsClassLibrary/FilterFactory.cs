@@ -11,15 +11,16 @@ namespace FormsControlsClassLibrary
         public static List<IFilter> GetFilters()
         {
             // create empty IFilter list to fill it up with all filters
-            List<IFilter> list = new List<IFilter>();
-
-            // adding all filters implementing IFilter into the list
-            list.Add(GetWorthFilter());
-            list.Add(GetTitleFilter());
-            list.Add(GetPublishedDateFilter());
-            list.Add(GetEndDateFilter());
-            list.Add(GetDeviceFilter());
-            list.Add(GetTypeFilter());
+            List<IFilter> list = new()
+            {
+                // adding all filters implementing IFilter into the list
+                GetWorthFilter(),
+                GetTitleFilter(),
+                GetPublishedDateFilter(),
+                GetEndDateFilter(),
+                GetDeviceFilter(),
+                GetTypeFilter()
+            };
 
             return list;
         }

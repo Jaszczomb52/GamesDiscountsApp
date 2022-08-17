@@ -1,5 +1,4 @@
 using APIServicesClassLibrary;
-using ToastNotificationsClassLibrary;
 using FormsControlsClassLibrary;
 using UserControlsLibrary;
 using APIServicesClassLibrary.Models;
@@ -29,17 +28,17 @@ namespace GamesDiscounts
             sorts = filterManager.GetSorts();
             filters = filterManager.GetFilters();
             panel1.Size = tableLayoutPanel11.Size;
+            manager = new APIManager();
+            checkBox1.CheckedChanged += (s, e) => LoadPanels(manager!.converted, Page.First);
         }
 
         private async void MainWindow_Load(object sender, EventArgs e)
         {
-            this.DoubleBuffered = true;
-            manager = new APIManager();
             comboBox1.DataSource = Enum.GetValues(typeof(APIFactory.platforms)).Cast<APIFactory.platforms>();
             comboBox2.DataSource = Enum.GetValues(typeof(APIFactory.types)).Cast<APIFactory.types>();
             await LoadFromAPI();
-            pageManager.Configure(20, manager.converted.Count);
-            LoadPanels(manager.converted,Page.None);
+            pageManager.Configure(20, manager!.converted.Where(x => x.status != "Dispose").Count());
+            LoadPanels(manager.converted,Page.First);
         }
 
         private void EnableLoading()
@@ -82,14 +81,21 @@ namespace GamesDiscounts
             }
 
             Parallel.ForEach(models.OrderByDescending(x => x.published_date)
-                .Skip((pageManager.GetCurrentPage()-1) * pageManager.GetCardsPerPage())
+                .Skip((pageManager.GetCurrentPage() - 1) * pageManager.GetCardsPerPage())
                     .Take(pageManager.GetCardsPerPage()), M =>
                     {
-                        TempList.Add(new DiscountPanel(M));
+                        if (!checkBox1.Checked)
+                            TempList.Add(new DiscountPanel(M));
+                        else if (M.status == "Active")
+                            TempList.Add(new DiscountPanel(M));
+                        else if(M.status == "Inactive")
+                            TempList.Add(new DiscountPanel(M).Disable());
                     });
 
             label5.Text = $"{pageManager.GetCurrentPage()} out of {pageManager.GetPages()}";
-            flowLayoutPanel2.Controls.AddRange(TempList.OrderByDescending(x => DateTime.Parse((x as DiscountPanel).label7.Text)).ToArray());
+
+
+            flowLayoutPanel2.Controls.AddRange(TempList.OrderByDescending(x => DateTime.Parse((x as DiscountPanel)!.label7.Text)).ToArray());
             DisableLoading();
 
             if (pageManager.GetPages() == 1)
@@ -97,80 +103,87 @@ namespace GamesDiscounts
         }
 
 
-        private async void button1_Click_1(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
-            var output = sorts.FirstOrDefault(x => x is IWorthFilter)!.FilterASC(manager.converted);
-            LoadPanels(output,Page.None);
-            manager.converted = output;
+            ClickLoad(
+                sorts.FirstOrDefault(x => x is IWorthFilter)!.FilterASC(manager!.converted)
+            );
         }
 
-        private async void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            var output = sorts.FirstOrDefault(x => x is IWorthFilter)!.FilterDESC(manager.converted);
-            LoadPanels(output, Page.None);
-            manager.converted = output;
+            ClickLoad(
+                sorts.FirstOrDefault(x => x is IWorthFilter)!.FilterDESC(manager!.converted)
+            );
         }
 
-        private async void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
-            var output = sorts.FirstOrDefault(x => x is ITitleFilter)!.FilterASC(manager.converted);
-            LoadPanels(output, Page.None);
-            manager.converted = output;
+            ClickLoad(
+                sorts.FirstOrDefault(x => x is ITitleFilter)!.FilterASC(manager!.converted)
+            );
         }
 
-        private async void button4_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
-            var output = sorts.FirstOrDefault(x => x is ITitleFilter)!.FilterDESC(manager.converted);
-            LoadPanels(output, Page.None);
-            manager.converted = output;
+            ClickLoad(
+                sorts.FirstOrDefault(x => x is ITitleFilter)!.FilterDESC(manager!.converted)
+            );
         }
 
-        private async void button5_Click(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e)
         {
-            var output = sorts.FirstOrDefault(x => x is IPublishedDateFilter)!.FilterASC(manager.converted);
-            LoadPanels(output, Page.None);
-            manager.converted = output;
+            ClickLoad(
+                sorts.FirstOrDefault(x => x is IPublishedDateFilter)!.FilterASC(manager!.converted)
+            );
         }
 
-        private async void button6_Click(object sender, EventArgs e)
+        private void button6_Click(object sender, EventArgs e)
         {
-            var output = sorts.FirstOrDefault(x => x is IPublishedDateFilter)!.FilterDESC(manager.converted);
-            LoadPanels(output, Page.None);
-            manager.converted = output;
+            ClickLoad(
+                sorts.FirstOrDefault(x => x is IPublishedDateFilter)!.FilterDESC(manager!.converted)
+            );
         }
 
-        private async void button7_Click(object sender, EventArgs e)
+        private void button7_Click(object sender, EventArgs e)
         {
-            var output = sorts.FirstOrDefault(x => x is IEndDateFilter)!.FilterASC(manager.converted);
-            LoadPanels(output, Page.None);
-            manager.converted = output;
+            ClickLoad(
+                sorts.FirstOrDefault(x => x is IEndDateFilter)!.FilterASC(manager!.converted)
+            );
         }
 
-        private async void button8_Click(object sender, EventArgs e)
+        private void button8_Click(object sender, EventArgs e)
         {
-            var output = sorts.FirstOrDefault(x => x is IEndDateFilter)!.FilterDESC(manager.converted);
-            LoadPanels(output, Page.None);
-            manager.converted = output;
+            ClickLoad(
+                sorts.FirstOrDefault(x => x is IEndDateFilter)!.FilterDESC(manager!.converted)
+            );
         }
 
-        private async void button9_Click(object sender, EventArgs e)
+        private void ClickLoad(List<IGameGiveawayConvertedModel> input)
+        {
+            LoadPanels(input, Page.None);
+            manager!.converted = input;
+        }
+
+        private void button9_Click(object sender, EventArgs e)
         {
             var filter = filters.FirstOrDefault(x => x is IDeviceFilter) as IDeviceFilter;
             filter!.SetDevice((APIFactory.platforms)comboBox1.SelectedItem);
-            var output = filter.FilterHasChoice(manager.converted);
-            manager.converted = output;
-            pageManager.Configure(20, manager.converted.Count);
-            label5.Text = $"{pageManager.GetCurrentPage()} out of {pageManager.GetPages()}";
-            LoadPanels(output, Page.First);
+            FilterCombosWrapper((IChoiceFilter)filter);
         }
 
-        private async void button10_Click(object sender, EventArgs e)
+        private void button10_Click(object sender, EventArgs e)
         {
             var filter = filters.FirstOrDefault(x => x is ITypeFilter) as ITypeFilter;
             filter!.SetType((APIFactory.types)comboBox2.SelectedItem);
-            var output = filter.FilterHasChoice(manager.converted);
+            FilterCombosWrapper((IChoiceFilter)filter);
+        }
+
+        private void FilterCombosWrapper(IChoiceFilter filter)
+        {
+            var output = filter.FilterHasChoice(manager!.converted);
             manager.converted = output;
-            pageManager.Configure(20, manager.converted.Count);
+            pageManager.Configure(20, manager.converted.Where(x => x.status != "Dispose").Count());
             label5.Text = $"{pageManager.GetCurrentPage()} out of {pageManager.GetPages()}";
             LoadPanels(output, Page.First);
         }
@@ -178,18 +191,13 @@ namespace GamesDiscounts
         private async void button11_Click(object sender, EventArgs e)
         {
             await LoadFromAPI();
-            pageManager.Configure(20, manager.converted.Count);
+            pageManager.Configure(20, manager!.converted.Where(x => x.status != "Dispose").Count());
             LoadPanels(manager.converted,Page.First);
         }
 
-        private void listBox1_DoubleClick(object sender, EventArgs e)
+        private void RightPageClick(object sender, EventArgs e)
         {
-
-        }
-
-        private async void RightPageClick(object sender, EventArgs e)
-        {
-            LoadPanels(manager.converted, Page.Right);
+            LoadPanels(manager!.converted, Page.Right);
             if (pageManager.GetCurrentPage() == pageManager.GetPages())
                 button13.Enabled = false;
             if (button12.Enabled == false && pageManager.GetPages() != 1)
@@ -197,14 +205,16 @@ namespace GamesDiscounts
             label5.Text = $"{pageManager.GetCurrentPage()} out of {pageManager.GetPages()}";
         }
 
-        private async void LeftPageClick(object sender, EventArgs e)
+        private void LeftPageClick(object sender, EventArgs e)
         {
-            LoadPanels(manager.converted, Page.Left);
+            LoadPanels(manager!.converted, Page.Left);
             if (pageManager.GetCurrentPage() == 1)
                 button12.Enabled = false;
             if (button13.Enabled == false && pageManager.GetPages() != 1)
                 button13.Enabled = true;
             label5.Text = $"{pageManager.GetCurrentPage()} out of {pageManager.GetPages()}";
         }
+
+        
     }
 }

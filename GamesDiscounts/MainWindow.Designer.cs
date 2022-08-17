@@ -58,15 +58,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
-            this.button11 = new System.Windows.Forms.Button();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.button12 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.button11 = new System.Windows.Forms.Button();
+            this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.splash2 = new UserControlsLibrary.Splash();
+            this.splash3 = new UserControlsLibrary.Splash();
             this.tableLayoutPanel11.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
@@ -81,6 +83,7 @@
             this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
             this.tableLayoutPanel15.SuspendLayout();
+            this.tableLayoutPanel17.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -239,7 +242,7 @@
             this.tableLayoutPanel16.RowCount = 1;
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(137, 34);
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(76, 32);
             this.tableLayoutPanel16.TabIndex = 2;
             // 
             // button8
@@ -248,9 +251,9 @@
             this.button8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button8.Location = new System.Drawing.Point(71, 3);
+            this.button8.Location = new System.Drawing.Point(41, 3);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(63, 28);
+            this.button8.Size = new System.Drawing.Size(32, 26);
             this.button8.TabIndex = 2;
             this.button8.Text = "v";
             this.button8.UseVisualStyleBackColor = false;
@@ -264,7 +267,7 @@
             this.button7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button7.Location = new System.Drawing.Point(3, 3);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(62, 28);
+            this.button7.Size = new System.Drawing.Size(32, 26);
             this.button7.TabIndex = 1;
             this.button7.Text = "^";
             this.button7.UseVisualStyleBackColor = false;
@@ -311,7 +314,7 @@
             this.tableLayoutPanel14.RowCount = 1;
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel14.Size = new System.Drawing.Size(137, 34);
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(76, 32);
             this.tableLayoutPanel14.TabIndex = 2;
             // 
             // button6
@@ -320,9 +323,9 @@
             this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button6.Location = new System.Drawing.Point(71, 3);
+            this.button6.Location = new System.Drawing.Point(41, 3);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(63, 28);
+            this.button6.Size = new System.Drawing.Size(32, 26);
             this.button6.TabIndex = 2;
             this.button6.Text = "v";
             this.button6.UseVisualStyleBackColor = false;
@@ -336,7 +339,7 @@
             this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button5.Location = new System.Drawing.Point(3, 3);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(62, 28);
+            this.button5.Size = new System.Drawing.Size(32, 26);
             this.button5.TabIndex = 1;
             this.button5.Text = "^";
             this.button5.UseVisualStyleBackColor = false;
@@ -383,7 +386,7 @@
             this.tableLayoutPanel12.RowCount = 1;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(137, 34);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(76, 32);
             this.tableLayoutPanel12.TabIndex = 2;
             // 
             // button4
@@ -392,9 +395,9 @@
             this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button4.Location = new System.Drawing.Point(71, 3);
+            this.button4.Location = new System.Drawing.Point(41, 3);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(63, 28);
+            this.button4.Size = new System.Drawing.Size(32, 26);
             this.button4.TabIndex = 2;
             this.button4.Text = "v";
             this.button4.UseVisualStyleBackColor = false;
@@ -408,7 +411,7 @@
             this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button3.Location = new System.Drawing.Point(3, 3);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(62, 28);
+            this.button3.Size = new System.Drawing.Size(32, 26);
             this.button3.TabIndex = 1;
             this.button3.Text = "^";
             this.button3.UseVisualStyleBackColor = false;
@@ -455,7 +458,7 @@
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(137, 34);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(76, 32);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // button2
@@ -464,9 +467,9 @@
             this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(71, 3);
+            this.button2.Location = new System.Drawing.Point(41, 3);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(63, 28);
+            this.button2.Size = new System.Drawing.Size(32, 26);
             this.button2.TabIndex = 1;
             this.button2.Text = "v";
             this.button2.UseVisualStyleBackColor = false;
@@ -480,7 +483,7 @@
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button1.Location = new System.Drawing.Point(3, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(62, 28);
+            this.button1.Size = new System.Drawing.Size(32, 26);
             this.button1.TabIndex = 0;
             this.button1.Text = "^";
             this.button1.UseVisualStyleBackColor = false;
@@ -516,8 +519,9 @@
             this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
             this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel13.Controls.Add(this.button11, 0, 0);
             this.tableLayoutPanel13.Controls.Add(this.tableLayoutPanel15, 1, 0);
+            this.tableLayoutPanel13.Controls.Add(this.button11, 0, 0);
+            this.tableLayoutPanel13.Controls.Add(this.tableLayoutPanel17, 2, 0);
             this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel13.Location = new System.Drawing.Point(3, 617);
             this.tableLayoutPanel13.Name = "tableLayoutPanel13";
@@ -525,20 +529,6 @@
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel13.Size = new System.Drawing.Size(1067, 44);
             this.tableLayoutPanel13.TabIndex = 4;
-            // 
-            // button11
-            // 
-            this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(26)))), ((int)(((byte)(63)))));
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button11.Location = new System.Drawing.Point(3, 4);
-            this.button11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(86, 36);
-            this.button11.TabIndex = 1;
-            this.button11.Text = "Refresh";
-            this.button11.UseVisualStyleBackColor = false;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // tableLayoutPanel15
             // 
@@ -601,6 +591,50 @@
             this.label5.Text = "1 out of ...";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // button11
+            // 
+            this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(26)))), ((int)(((byte)(63)))));
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button11.Location = new System.Drawing.Point(3, 4);
+            this.button11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(86, 36);
+            this.button11.TabIndex = 1;
+            this.button11.Text = "Refresh";
+            this.button11.UseVisualStyleBackColor = false;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
+            // tableLayoutPanel17
+            // 
+            this.tableLayoutPanel17.ColumnCount = 1;
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel17.Controls.Add(this.checkBox1, 0, 0);
+            this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel17.Location = new System.Drawing.Point(686, 3);
+            this.tableLayoutPanel17.Name = "tableLayoutPanel17";
+            this.tableLayoutPanel17.RowCount = 1;
+            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(378, 38);
+            this.tableLayoutPanel17.TabIndex = 3;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.checkBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.checkBox1.Location = new System.Drawing.Point(3, 3);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(372, 32);
+            this.checkBox1.TabIndex = 4;
+            this.checkBox1.Text = "Disable graying out 3 months old freebies";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 1;
@@ -627,19 +661,19 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.splash2);
+            this.panel1.Controls.Add(this.splash3);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(26, 27);
             this.panel1.TabIndex = 5;
             // 
-            // splash2
+            // splash3
             // 
-            this.splash2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splash2.Location = new System.Drawing.Point(0, 0);
-            this.splash2.Name = "splash2";
-            this.splash2.Size = new System.Drawing.Size(26, 27);
-            this.splash2.TabIndex = 0;
+            this.splash3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splash3.Location = new System.Drawing.Point(0, 0);
+            this.splash3.Name = "splash3";
+            this.splash3.Size = new System.Drawing.Size(26, 27);
+            this.splash3.TabIndex = 0;
             // 
             // MainWindow
             // 
@@ -651,9 +685,11 @@
             this.Controls.Add(this.tableLayoutPanel11);
             this.Controls.Add(this.tableLayoutPanel4);
             this.Controls.Add(this.tableLayoutPanel10);
+            this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MinimumSize = new System.Drawing.Size(556, 623);
             this.Name = "MainWindow";
-            this.Text = "Form1";
+            this.Text = "Freebies";
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.tableLayoutPanel11.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -674,6 +710,8 @@
             this.tableLayoutPanel13.ResumeLayout(false);
             this.tableLayoutPanel15.ResumeLayout(false);
             this.tableLayoutPanel15.PerformLayout();
+            this.tableLayoutPanel17.ResumeLayout(false);
+            this.tableLayoutPanel17.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -712,7 +750,6 @@
         private TableLayoutPanel tableLayoutPanel4;
         private TableLayoutPanel tableLayoutPanel10;
         private FlowLayoutPanel flowLayoutPanel2;
-        private UserControlsLibrary.Splash splash1;
         private Panel panel1;
         private TableLayoutPanel tableLayoutPanel13;
         private Button button11;
@@ -720,6 +757,8 @@
         private Button button12;
         private Button button13;
         private Label label5;
-        private UserControlsLibrary.Splash splash2;
+        private UserControlsLibrary.Splash splash3;
+        private TableLayoutPanel tableLayoutPanel17;
+        private CheckBox checkBox1;
     }
 }
