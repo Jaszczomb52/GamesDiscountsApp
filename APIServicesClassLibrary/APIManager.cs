@@ -38,6 +38,8 @@ namespace APIServicesClassLibrary
                         raws = new();
                     }
                 }
+                else
+                    raws = new();
             }
         }
 
