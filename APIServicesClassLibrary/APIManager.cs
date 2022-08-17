@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,8 +12,8 @@ namespace APIServicesClassLibrary
     public class APIManager
     {
         private IModelsConverter Converter { get; } = APIFactory.CreateModelsConverter();
-        private List<GameGiveawayRawModel> raws { get; set; } = new List<GameGiveawayRawModel>();
-        public List<IGameGiveawayConvertedModel> converted { get; set; } = new List<IGameGiveawayConvertedModel>();
+        private List<GameGiveawayRawModel> raws { get; set; } = new();
+        public List<IGameGiveawayConvertedModel> converted { get; set; } = new();
         public string APILink { get; set; } = "";
 
         public void SetAPILink(string link)
@@ -45,16 +46,10 @@ namespace APIServicesClassLibrary
 
         public async Task ConvertModel()
         {
-            List<Task<IGameGiveawayConvertedModel>> tasks = new();
-            foreach (GameGiveawayRawModel rm in raws)
+            await Parallel.ForEachAsync(raws, async (x, CancellationToken) => 
             {
-                tasks.Add(Task.Run(() => ConvertModel(rm)));
-            }
-            var results = await Task.WhenAll(tasks);
-            foreach(IGameGiveawayConvertedModel item in results)
-            {
-                converted.Add(item);
-            }
+                converted.Add(ConvertModel(x));
+            });
         }
 
         private IGameGiveawayConvertedModel ConvertModel(GameGiveawayRawModel model)
