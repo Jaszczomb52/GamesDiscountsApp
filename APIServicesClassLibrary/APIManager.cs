@@ -44,6 +44,8 @@ namespace APIServicesClassLibrary
             }
         }
 
+        public void OrderByTitleAsc() => converted = converted.OrderBy(i => i.title).ToList();
+
         public async Task ConvertModel()
         {
             await Parallel.ForEachAsync(raws, async (x, CancellationToken) => 

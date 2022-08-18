@@ -21,6 +21,10 @@ namespace UserControlsLibrary
         /// Link used firstly for image link, then for link for giveaway
         /// </summary>
         string _link = "";
+        public string title;
+        public DateTime published_date;
+        public DateTime end_date;
+        public decimal worth;
 
         /// <summary>
         /// Constructor converting properties from converted model to proper properties in panel.
@@ -32,7 +36,7 @@ namespace UserControlsLibrary
             _link = model.image;
             if (_link != "")
                 pictureBox1.Load(_link);
-            label1.Text = model.title;
+            label1.Text = title = model.title;
             label3.Text = ConvertPlatforms(model.device);
             label5.Text = model.type.ToString();
             label7.Text = model.published_date.ToShortDateString();
@@ -41,8 +45,11 @@ namespace UserControlsLibrary
             else
                 label9.Text = model.end_date.ToShortDateString();
             label11.Text = "$" + model.worth.ToString();
+
             _link = model.open_giveaway_url;
-            
+            published_date = model.published_date;
+            end_date = model.end_date;
+            worth = model.worth;
         }
 
         private string ConvertPlatforms(List<APIServicesClassLibrary.APIFactory.platforms> platforms)
