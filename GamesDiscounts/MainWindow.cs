@@ -108,19 +108,19 @@ namespace GamesDiscounts
 
             button13.Enabled = button12.Enabled = true;
 
-            if (page == Page.Left)
-                pageManager.MoveLeft();
-            if (page == Page.Right)
-                pageManager.MoveRight();
             if (page == Page.First)
             {
                 button12.Enabled = false;
                 pageManager.FirstPage();
             }
+            else if (page == Page.Right)
+                pageManager.MoveRight();
+            else if (page == Page.Left)
+                pageManager.MoveLeft();
 
-            Parallel.ForEach(models
-                .Skip((pageManager.GetCurrentPage() - 1) * pageManager.GetCardsPerPage())
-                    .Take(pageManager.GetCardsPerPage()), M =>
+            Parallel.ForEach(models.Skip((pageManager.GetCurrentPage() - 1) * pageManager.GetCardsPerPage())
+                    .Take(pageManager.GetCardsPerPage()),
+                    M =>
                     {
                         if (checkBox1.Checked)
                         {
@@ -130,9 +130,7 @@ namespace GamesDiscounts
                                 TempList.Add(new DiscountPanel(M).Disable());
                         }
                         else
-                        {
                             TempList.Add(new DiscountPanel(M));
-                        }
                     });
 
             label5.Text = $"{pageManager.GetCurrentPage()} out of {pageManager.GetPages()}";
@@ -159,8 +157,6 @@ namespace GamesDiscounts
                 flowLayoutPanel2.Controls.AddRange(TempList.ToArray());
             #endregion
 
-            //flowLayoutPanel2.Controls.AddRange(TempList.OrderByDescending(x => DateTime.Parse((x as DiscountPanel)!.label7.Text)).ToArray());
-            //flowLayoutPanel2.Controls.AddRange(TempList.ToArray());
             DisableLoading();
 
             if (pageManager.GetPages() == 1)
@@ -170,70 +166,55 @@ namespace GamesDiscounts
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            // click for sort by worth desc
             LoadPanels(manager.converted, Page.First, DiscountsPanelFilter.FilterTypes.Worth, false);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            // click for sort by worth desc
             LoadPanels(manager.converted, Page.First, DiscountsPanelFilter.FilterTypes.Worth, true);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //manager.OrderByTitleAsc();
+            // click for sort by title asc
             LoadPanels(manager.converted, Page.First,DiscountsPanelFilter.FilterTypes.Title, false);
-
-
-            //List<DiscountPanel> discountPanels = new List<DiscountPanel>();
-            //foreach (var item in flowLayoutPanel2.Controls)
-            //{
-            //    if(item is DiscountPanel)
-            //    {
-            //        discountPanels.Add((DiscountPanel)item);    
-            //    }
-            //}
-            //discountPanels = discountPanels.OrderBy(I=>I.title).ToList();
-            //flowLayoutPanel2.Controls.Clear();
-            //flowLayoutPanel2.Controls.AddRange(discountPanels.ToArray());
-
-
-
-
-
-            /*ClickLoad(
-                sorts.FirstOrDefault(x => x is ITitleFilter)!.FilterASC(manager!.converted)
-            );*/
-
-            // list.AsParallel().AsOrdered();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
+            // click for sort by title desc
             LoadPanels(manager.converted, Page.First, DiscountsPanelFilter.FilterTypes.Title, true);
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
+            // click for sort by published date asc
             LoadPanels(manager.converted, Page.First, DiscountsPanelFilter.FilterTypes.PublishDate, false);
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
+            // click for sort by published date desc
             LoadPanels(manager.converted, Page.First, DiscountsPanelFilter.FilterTypes.PublishDate, true);
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
+            // click for sort by end date asc
             LoadPanels(manager.converted, Page.First, DiscountsPanelFilter.FilterTypes.EndDate, false);
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
+            // click for sort by end date desc
             LoadPanels(manager.converted, Page.First, DiscountsPanelFilter.FilterTypes.EndDate, true);
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
+            // filtering platforms
             var filter = filters.FirstOrDefault(x => x is IDeviceFilter) as IDeviceFilter;
             filter!.SetDevice((APIFactory.platforms)comboBox1.SelectedItem);
             FilterCombosWrapper((IChoiceFilter)filter);
@@ -241,6 +222,7 @@ namespace GamesDiscounts
 
         private void button10_Click(object sender, EventArgs e)
         {
+            // filtering types
             var filter = filters.FirstOrDefault(x => x is ITypeFilter) as ITypeFilter;
             filter!.SetType((APIFactory.types)comboBox2.SelectedItem);
             FilterCombosWrapper((IChoiceFilter)filter);

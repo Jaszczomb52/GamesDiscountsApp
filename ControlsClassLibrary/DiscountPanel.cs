@@ -33,6 +33,7 @@ namespace UserControlsLibrary
         public DiscountPanel(IGameGiveawayConvertedModel model)
         {
             InitializeComponent();
+
             _link = model.image;
             if (_link != "")
                 pictureBox1.Load(_link);
