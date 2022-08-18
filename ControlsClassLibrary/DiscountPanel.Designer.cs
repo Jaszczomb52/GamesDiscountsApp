@@ -350,7 +350,6 @@
         private TableLayoutPanel tableLayoutPanel2;
         private PictureBox pictureBox1;
         private TableLayoutPanel tableLayoutPanel6;
-        private Label label11;
         private Label label10;
         private TableLayoutPanel tableLayoutPanel5;
         private Label label5;
@@ -359,10 +358,11 @@
         private Label label3;
         private Label label2;
         private TableLayoutPanel tableLayoutPanel3;
-        private Label label9;
         private Button button1;
         private Label label6;
         public Label label1;
         public Label label7;
+        public Label label11;
+        public Label label9;
     }
 }

@@ -32,8 +32,8 @@ namespace APIServicesClassLibrary
             else
                 converted.status = raw.status;
 
-            if (converted.published_date < DateTime.Today.AddYears(-1))
-                converted.status = "Dispose";
+            //if (converted.published_date < DateTime.Today.AddYears(-1))
+            //    converted.status = "Dispose";
 
             return converted;
         }
